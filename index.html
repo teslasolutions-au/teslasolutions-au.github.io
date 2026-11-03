@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tesla Solutions | Electrical &amp; Infrastructure Engineering</title>
+<meta name="description" content="Tesla Solutions is an engineering and infrastructure services company, with electrical at its core.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A141D; --ink-2:#13222F; --volt:#F2C200;
+  --paper:#E7ECEF; --paper-2:#D9E1E6; --text:#0F1B26; --muted:#46586A; --line:#B8C4CD;
+  --f:"Archivo","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#121C26;--paper-2:#192631;--text:#E6ECF0;--muted:#9DAFBD;--line:#2A3A48;color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#121C26;--paper-2:#192631;--text:#E6ECF0;--muted:#9DAFBD;--line:#2A3A48;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--paper);color:var(--text);font:400 1.0625rem/1.6 var(--f);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ink);z-index:60}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--volt);outline-offset:3px}
+.wrap{width:min(1240px,100% - 3rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--f);margin:0;font-weight:800}
+p{margin:0}
+
+/* Header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:#fff;border-bottom:1px solid #22364a}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-stretch:75%;font-weight:800;font-size:1.35rem;letter-spacing:.01em;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.logo i{width:14px;height:14px;background:var(--volt);clip-path:polygon(55% 0,0 58%,45% 58%,35% 100%,100% 38%,55% 38%)}
+.nav ul{display:flex;gap:2rem;list-style:none;margin:0;padding:0;align-items:center}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:#C9D6E0}
+.nav a:hover{color:#fff}
+.nav .btn-sm{background:var(--volt);color:var(--ink);padding:.55rem 1.1rem;font-weight:700}
+.nav .btn-sm:hover{color:var(--ink);background:#fff}
+.menu-btn{display:none;background:none;border:1px solid #3a516a;color:#fff;font:600 .9rem var(--f);padding:.5rem .9rem;cursor:pointer}
+
+/* Hero */
+.hero{background:var(--ink);color:#fff;padding:clamp(4rem,10vw,8rem) 0 0;overflow:hidden}
+.hero h1{font-stretch:68%;font-weight:850;font-size:clamp(3.4rem,13.5vw,11.5rem);line-height:.88;letter-spacing:-.005em;max-width:13ch}
+.hero .lede{max-width:46ch;margin-top:clamp(1.8rem,4vw,3rem);font-size:clamp(1.1rem,1.6vw,1.3rem);color:#B9C8D4}
+.hero .actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+.btn{display:inline-block;font:700 1rem var(--f);padding:1rem 1.7rem;text-decoration:none;border:2px solid var(--volt);cursor:pointer;transition:background .2s,color .2s}
+.btn.solid{background:var(--volt);color:var(--ink)}
+.btn.solid:hover{background:#fff;border-color:#fff}
+.btn.ghost{color:#fff;border-color:#40586f}
+.btn.ghost:hover{border-color:var(--volt);color:var(--volt)}
+.trace{display:block;width:100%;height:auto;margin-top:clamp(3rem,7vw,5.5rem)}
+.trace path{fill:none;stroke:var(--volt);stroke-width:2;stroke-dasharray:2600;stroke-dashoffset:2600;animation:draw 3.2s .3s cubic-bezier(.6,0,.2,1) forwards}
+.trace .faint{stroke:#2a4157;stroke-dasharray:none;stroke-dashoffset:0;animation:none}
+.trace circle{fill:var(--ink);stroke:var(--volt);stroke-width:2;opacity:0;animation:pop .4s forwards}
+.trace circle:nth-of-type(1){animation-delay:.9s}.trace circle:nth-of-type(2){animation-delay:1.7s}
+.trace circle:nth-of-type(3){animation-delay:2.4s}.trace circle:nth-of-type(4){animation-delay:3.2s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+.glance{background:var(--ink-2);border-top:1px solid #22364a}
+.glance dl{margin:0;display:grid;grid-template-columns:repeat(3,1fr)}
+.glance div{padding:1.6rem 1.5rem 1.8rem 0}
+.glance div+div{padding-left:1.5rem;border-left:1px solid #22364a}
+.glance dt{font-weight:700;font-size:1.15rem;color:#fff}
+.glance dd{margin:.3rem 0 0;color:#9FB2C2;font-size:.98rem}
+
+/* Sections */
+.section{padding:clamp(4.5rem,9vw,8rem) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:2rem 4rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.sec-head h2{font-stretch:72%;font-size:clamp(2.6rem,6.5vw,5.2rem);line-height:.95;font-weight:800}
+.sec-head p{color:var(--muted);max-width:44ch;font-size:1.1rem}
+
+/* Services */
+.rows{border-top:2px solid var(--text);list-style:none;margin:0;padding:0}
+.row{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) minmax(0,.8fr);gap:1rem 3rem;padding:2rem 1rem 2rem 0;border-bottom:1px solid var(--line);transition:background .25s,padding .25s}
+.row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--volt);transform:scaleY(0);transform-origin:top;transition:transform .25s}
+.row:hover,.row:focus-within{background:var(--paper-2);padding-left:1.6rem}
+.row:hover::before,.row:focus-within::before{transform:scaleY(1)}
+.row h3{font-stretch:80%;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.05}
+.row p{color:var(--muted)}
+.row ul{list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500}
+.row li{padding:.18rem 0;border-bottom:1px dotted var(--line)}
+.more{margin-top:2rem;color:var(--muted)}
+
+/* About */
+.about{background:var(--paper-2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 5rem}
+.about h2{font-stretch:72%;font-size:clamp(2.6rem,6vw,4.8rem);line-height:.95}
+.about .body p+p{margin-top:1.1rem}
+.about .body{font-size:1.125rem;max-width:56ch}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:4rem 0 0;padding:0;list-style:none}
+.principles li{border-left:4px solid var(--volt);padding-left:1.2rem}
+.principles strong{display:block;font-size:1.25rem;font-stretch:85%;margin-bottom:.3rem}
+.principles span{color:var(--muted)}
+.process{margin:5rem 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,1fr);counter-reset:s;border-top:2px solid var(--text)}
+.process li{counter-increment:s;padding:1.2rem 1.2rem 0 0}
+.process li::before{content:counter(s);display:block;font-stretch:70%;font-weight:800;font-size:2.6rem;line-height:1;color:var(--text);margin-bottom:.8rem}
+.process b{display:block;font-size:1.1rem}
+.process span{display:block;color:var(--muted);font-size:.95rem;margin-top:.2rem}
+
+/* Contact / footer */
+.contact{background:var(--ink);color:#fff;padding:clamp(4.5rem,9vw,8rem) 0 2rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 6rem}
+.contact h2{font-stretch:68%;font-weight:850;font-size:clamp(3rem,8vw,6.8rem);line-height:.9}
+.contact .intro{margin-top:1.6rem;color:#B9C8D4;max-width:40ch}
+.contact .direct{margin-top:2rem;color:#B9C8D4}
+.contact .direct a{color:var(--volt)}
+form{display:grid;gap:1.2rem}
+label{display:grid;gap:.4rem;font-weight:600;font-size:.95rem;color:#DCE6EE}
+input,select,textarea{font:400 1rem var(--f);color:#fff;background:var(--ink-2);border:1px solid #35506a;border-radius:0;padding:.85rem 1rem;width:100%}
+select option{color:#000}
+textarea{min-height:140px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--volt);outline-offset:0;border-color:var(--volt)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.err{color:#FF9C8A;font-size:.88rem;min-height:1.1em;font-weight:500}
+input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#FF9C8A}
+.status{font-weight:600;color:var(--volt);min-height:1.5em}
+.legal{margin-top:clamp(4rem,8vw,6rem);padding-top:1.4rem;border-top:1px solid #22364a;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#8EA2B3;font-size:.9rem}
+
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .nav{position:absolute;left:0;right:0;top:72px;background:var(--ink);border-bottom:1px solid #22364a;display:none}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1.5rem 1.5rem}
+  .nav li a{display:block;padding:.9rem 0;border-bottom:1px solid #22364a}
+  .nav .btn-sm{text-align:center;margin-top:1rem;border:0}
+  .glance dl{grid-template-columns:1fr}
+  .glance div,.glance div+div{padding:1.2rem 0;border-left:0}
+  .glance div+div{border-top:1px solid #22364a}
+  .sec-head,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:.8rem}
+  .principles{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr 1fr}
+  .process li{padding-bottom:1.5rem}
+  .two{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .trace path{animation:none;stroke-dashoffset:0}
+  .trace circle{animation:none;opacity:1}
+  .row,.row::before,.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top"><i aria-hidden="true"></i>Tesla Solutions</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="btn-sm" href="#contact">Request a quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>We engineer the power behind the build.</h1>
+      <p class="lede">Tesla Solutions is an engineering and infrastructure services company. We design, install and maintain electrical systems, and the infrastructure that surrounds them.</p>
+      <div class="actions">
+        <a class="btn solid" href="#contact">Request a quote</a>
+        <a class="btn ghost" href="#services">See what we do</a>
+      </div>
+    </div>
+    <svg class="trace" viewBox="0 0 1600 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path class="faint" d="M0 90H1600"/>
+      <path d="M0 90H260V40H620V90H980V30H1320V90H1600"/>
+      <circle cx="260" cy="65" r="7"/><circle cx="620" cy="65" r="7"/>
+      <circle cx="980" cy="60" r="7"/><circle cx="1320" cy="60" r="7"/>
+    </svg>
+    <div class="glance">
+      <div class="wrap">
+        <dl>
+          <div><dt>Electrical first</dt><dd>Our core discipline, from supply to final circuit.</dd></div>
+          <div><dt>Infrastructure beyond</dt><dd>Supporting works that keep a project moving.</dd></div>
+          <div><dt>Design to maintenance</dt><dd>One team across the full life of a system.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What we do</h2>
+        <p>Electrical engineering and installation sit at the centre of our work. Around it, we deliver the infrastructure services projects depend on.</p>
+      </div>
+      <ul class="rows">
+        <li class="row">
+          <h3>Electrical design &amp; installation</h3>
+          <p>Complete electrical systems for commercial, industrial and infrastructure projects, designed and installed to specification.</p>
+          <ul><li>Design and documentation</li><li>Wiring and cabling</li><li>Lighting and small power</li></ul>
+        </li>
+        <li class="row">
+          <h3>Power distribution &amp; switchgear</h3>
+          <p>Reliable distribution from incoming supply to the loads that matter, built for safety and capacity to grow.</p>
+          <ul><li>Switchboards and panels</li><li>Transformers and supply</li><li>Backup and standby power</li></ul>
+        </li>
+        <li class="row">
+          <h3>Testing, commissioning &amp; maintenance</h3>
+          <p>We prove that systems perform as designed, then keep them performing with planned and responsive maintenance.</p>
+          <ul><li>Inspection and testing</li><li>Commissioning</li><li>Preventive maintenance</li></ul>
+        </li>
+        <li class="row">
+          <h3>Infrastructure &amp; civil works</h3>
+          <p>The groundwork around electrical systems: trenching, ducting, pits and supporting structures.</p>
+          <ul><li>Cable routes and ducts</li><li>Site services</li><li>Supporting structures</li></ul>
+        </li>
+        <li class="row">
+          <h3>Solar &amp; EV charging</h3>
+          <p>Connecting new energy to existing sites, from solar arrays to vehicle charging points.</p>
+          <ul><li>Solar integration</li><li>EV charging installs</li><li>Load assessment</li></ul>
+        </li>
+        <li class="row">
+          <h3>Engineering &amp; project support</h3>
+          <p>Technical advice and coordination that keeps scope, budget and programme under control.</p>
+          <ul><li>Feasibility and audits</li><li>Project coordination</li><li>Compliance support</li></ul>
+        </li>
+      </ul>
+      <p class="more">Don’t see your project here? Tell us what you need and we’ll let you know how we can help.</p>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <h2>Technical work, done with care.</h2>
+        <div class="body">
+          <p>Tesla Solutions is an engineering and infrastructure services company built around electrical work. We take on projects where the details matter and the systems have to keep running long after we leave site.</p>
+          <p>Whether you are planning a new installation, upgrading existing infrastructure or looking for a team to maintain it, we work to the same standard: clear scope, careful execution and honest communication.</p>
+        </div>
+      </div>
+      <ul class="principles">
+        <li><strong>Precise</strong><span>Designed, installed and tested to specification.</span></li>
+        <li><strong>Transparent</strong><span>Plain-language scope, progress and pricing.</span></li>
+        <li><strong>Built to last</strong><span>Systems planned for safety, capacity and the long term.</span></li>
+      </ul>
+      <ol class="process" aria-label="How we work">
+        <li><b>Assess</b><span>Understand the site, the load and the goal.</span></li>
+        <li><b>Design</b><span>Engineer a system to specification.</span></li>
+        <li><b>Build</b><span>Install with qualified, supervised crews.</span></li>
+        <li><b>Commission</b><span>Test and prove performance.</span></li>
+        <li><b>Support</b><span>Maintain and adapt as needs change.</span></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Have a project in mind?</h2>
+        <p class="intro">Tell us what you’re planning. We’ll reply with next steps and, where we can, a clear idea of scope.</p>
+        <p class="direct">Prefer email? Write to <a href="mailto:hello@teslasolutions.example">hello@teslasolutions.example</a></p>
+      </div>
+      <form id="form" novalidate>
+        <div class="two">
+          <label>Name<input name="name" autocomplete="name" required><span class="err" data-for="name"></span></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required><span class="err" data-for="email"></span></label>
+        </div>
+        <label>Service
+          <select name="service">
+            <option>Electrical design &amp; installation</option>
+            <option>Power distribution &amp; switchgear</option>
+            <option>Testing, commissioning &amp; maintenance</option>
+            <option>Infrastructure &amp; civil works</option>
+            <option>Solar &amp; EV charging</option>
+            <option>Engineering &amp; project support</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Project details<textarea name="message" required></textarea><span class="err" data-for="message"></span></label>
+        <button class="btn solid" type="submit">Send enquiry</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="legal">
+      <span>&copy; <span id="yr">2026</span> Tesla Solutions. All rights reserved.</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu';
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';}
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  var form=document.getElementById('form'),status=form.querySelector('.status');
+  var msgs={name:'Enter your name.',email:'Enter a valid email address.',message:'Tell us a little about the project.'};
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true,d=new FormData(form);
+    ['name','email','message'].forEach(function(k){
+      var f=form.elements[k],v=(d.get(k)||'').trim();
+      var bad=!v||(k==='email'&&!/^\S+@\S+\.\S+$/.test(v));
+      f.setAttribute('aria-invalid',bad);
+      form.querySelector('[data-for="'+k+'"]').textContent=bad?msgs[k]:'';
+      if(bad)ok=false;
+    });
+    if(!ok){status.textContent='Please fix the highlighted fields.';return;}
+    var body='Name: '+d.get('name')+'\nEmail: '+d.get('email')+'\nService: '+d.get('service')+'\n\n'+d.get('message');
+    window.location.href='mailto:hello@teslasolutions.example?subject='+encodeURIComponent('Enquiry: '+d.get('service'))+'&body='+encodeURIComponent(body);
+    status.textContent='Opening your email app to send the enquiry.';
+  });
+})();
+</script>
+</body>
+</html>
